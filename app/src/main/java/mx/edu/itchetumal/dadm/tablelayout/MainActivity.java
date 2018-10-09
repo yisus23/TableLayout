@@ -12,8 +12,8 @@ public class MainActivity extends AppCompatActivity {
     Button btn1, btn2,btn3,btn4,btn5,btn6,btn7,btn8,btn9,btn0,btn11,btn12;
     EditText edtResult;
     Button btnBorrar;
-    String tempRes,tempRes2;
-    int operador1,operador2,open,res;
+    String tempRes, resultado;
+    char operador1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -183,18 +183,13 @@ public class MainActivity extends AppCompatActivity {
         btn11.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View v) {
-                                        if (edtResult.getText().toString().compareTo("0")==0){
-
                                             try{
-                                                tempRes = edtResult.getText().toString();
-                                                operador1 = Integer.parseInt(tempRes);
-
+                                                    tempRes = edtResult.getText().toString();
+                                                    edtResult.setText("");
+                                                    operador1 ='+';
                                             }catch (NumberFormatException nfe){}
-                                            edtResult.setText("");
-                                            open=1;
 
-                                        }else
-                                            Toast.makeText(MainActivity.this, "salio mal", Toast.LENGTH_SHORT).show();
+
                                     }
                                 }
 
@@ -205,19 +200,10 @@ public class MainActivity extends AppCompatActivity {
         btn12.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View v) {
-                                            try{
-                                             tempRes2=edtResult.getText().toString();
-                                            operador2 = Integer.parseInt(tempRes2);
-
-                                            }catch (NumberFormatException nfe){}
-                                               edtResult.setText("");
-
-
-
-                                            if (open==1)
-                                                res=operador1 + operador2 ;
-                                            else
-                                                Toast.makeText(MainActivity.this, "salio mal", Toast.LENGTH_SHORT).show();
+                                         if (operador1=='+') {
+                                           resultado = tempRes + edtResult;
+                                           
+                                         }
                                     }
                                 }
 
@@ -225,7 +211,17 @@ public class MainActivity extends AppCompatActivity {
         );
 
 
-
+/*
+*  char operador='';
+*  boolean bandResulBorrador = false;
+*  if((operador!='')&& !bandResultado)
+*  edtResult.setText("1");
+*  bandResulBorrador = true;
+*
+*
+*
+*
+* */
 
 
 
@@ -235,3 +231,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 }
+
+
+
