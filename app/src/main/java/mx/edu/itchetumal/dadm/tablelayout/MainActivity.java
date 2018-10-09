@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -12,8 +13,9 @@ public class MainActivity extends AppCompatActivity {
     Button btn1, btn2,btn3,btn4,btn5,btn6,btn7,btn8,btn9,btn0,btn11,btn12;
     EditText edtResult;
     Button btnBorrar;
-    String tempRes, resultado;
+    String tempRes ;
     char operador1;
+    int resultado;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -201,8 +203,10 @@ public class MainActivity extends AppCompatActivity {
                                     @Override
                                     public void onClick(View v) {
                                          if (operador1=='+') {
-                                           resultado = tempRes + edtResult;
-                                           
+                                         resultado += Integer.parseInt( tempRes);
+                                         edtResult.setText(resultado+edtResult.toString());
+
+
                                          }
                                     }
                                 }
